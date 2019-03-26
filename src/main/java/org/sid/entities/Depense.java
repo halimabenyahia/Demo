@@ -21,6 +21,7 @@ public class Depense {
 	private Boolean mvt_caisse ;
 	private Date date_caisse ;
 	private String reference_d ;
+	//private 
 	
 	@OneToOne
 	@JoinColumn(name="id_immatriculation")
