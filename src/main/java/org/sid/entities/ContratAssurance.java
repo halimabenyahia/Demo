@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,7 +24,7 @@ public class ContratAssurance {
 	private Date date_fin_contrat ;
 	private String num_police ;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="id_assurance")
 	private Assurance assurance_c ;
 	

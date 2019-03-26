@@ -18,17 +18,17 @@ public class Piece {
 	private Long qte_p ;
 	private Long remise_p ;
 	
-//	@OneToOne
-//	@JoinColumn(name="id_typePiece")
-//	private TypePiece type_piece_p ;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="id_entree")
-//	private EntreeStock entre_stock ;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="id_sortieStock")
-//	private SortieStock sortie_stock ;
+	@OneToOne
+	@JoinColumn(name="id_typePiece")
+	private TypePiece type_piece_p ;
+	
+	@ManyToOne
+	@JoinColumn(name="id_entree")
+	private EntreeStock entre_stock ;
+	
+	@ManyToOne
+	@JoinColumn(name="id_sortieStock")
+	private SortieStock sortie_stock ;
 
 	public int getId_piece() {
 		return id_piece;
@@ -78,29 +78,29 @@ public class Piece {
 		this.remise_p = remise_p;
 	}
 
-//	public TypePiece getType_piece_p() {
-//		return type_piece_p;
-//	}
-//
-//	public void setType_piece_p(TypePiece type_piece_p) {
-//		this.type_piece_p = type_piece_p;
-//	}
-//
-//	public EntreeStock getEntre_stock() {
-//		return entre_stock;
-//	}
-//
-//	public void setEntre_stock(EntreeStock entre_stock) {
-//		this.entre_stock = entre_stock;
-//	}
-//
-//	public SortieStock getSortie_stock() {
-//		return sortie_stock;
-//	}
-//
-//	public void setSortie_stock(SortieStock sortie_stock) {
-//		this.sortie_stock = sortie_stock;
-//	}
+	public TypePiece getType_piece_p() {
+		return type_piece_p;
+	}
+
+	public void setType_piece_p(TypePiece type_piece_p) {
+		this.type_piece_p = type_piece_p;
+	}
+
+	public EntreeStock getEntre_stock() {
+		return entre_stock;
+	}
+
+	public void setEntre_stock(EntreeStock entre_stock) {
+		this.entre_stock = entre_stock;
+	}
+
+	public SortieStock getSortie_stock() {
+		return sortie_stock;
+	}
+
+	public void setSortie_stock(SortieStock sortie_stock) {
+		this.sortie_stock = sortie_stock;
+	}
 
 	public Piece(int id_piece, String des_piece, Long tva_p, Long prix_achat, Long qte_p, Long remise_p,
 			TypePiece type_piece_p, EntreeStock entre_stock, SortieStock sortie_stock) {
@@ -111,9 +111,9 @@ public class Piece {
 		this.prix_achat = prix_achat;
 		this.qte_p = qte_p;
 		this.remise_p = remise_p;
-//		this.type_piece_p = type_piece_p;
-//		this.entre_stock = entre_stock;
-//		this.sortie_stock = sortie_stock;
+		this.type_piece_p = type_piece_p;
+		this.entre_stock = entre_stock;
+     	this.sortie_stock = sortie_stock;
 	}
 
 	public Piece() {

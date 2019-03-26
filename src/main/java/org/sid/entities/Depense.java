@@ -23,10 +23,7 @@ public class Depense {
 	private String reference_d ;
 	//private 
 	
-	@OneToOne
-	@JoinColumn(name="id_immatriculation")
-	private Vehicule vehicule_depense ;
-	
+
 	
 	@ManyToOne
 	@JoinColumn(name="id_fournisseur")
@@ -104,13 +101,6 @@ public class Depense {
 		this.reference_d = reference_d;
 	}
 
-	public Vehicule getVehicule_depense() {
-		return vehicule_depense;
-	}
-
-	public void setVehicule_depense(Vehicule vehicule_depense) {
-		this.vehicule_depense = vehicule_depense;
-	}
 
 	public Fournisseur getFournisseur_d() {
 		return fournisseur_d;
@@ -142,7 +132,7 @@ public class Depense {
 	}
 
 	public Depense(int id_depense, Date date_depense, Long montant_ht, Long tva, Long ttc, Boolean mvt_caisse,
-			Date date_caisse, String reference_d, Vehicule vehicule_depense, Fournisseur fournisseur_d, Piece piece_d,
+			Date date_caisse, String reference_d, Fournisseur fournisseur_d, Piece piece_d,
 			DepenseCarburant depense_carburant) {
 		super();
 		this.id_depense = id_depense;
@@ -153,7 +143,7 @@ public class Depense {
 		this.mvt_caisse = mvt_caisse;
 		this.date_caisse = date_caisse;
 		this.reference_d = reference_d;
-		this.vehicule_depense = vehicule_depense;
+
 		this.fournisseur_d = fournisseur_d;
 		this.piece_d = piece_d;
 		this.depense_carburant = depense_carburant;

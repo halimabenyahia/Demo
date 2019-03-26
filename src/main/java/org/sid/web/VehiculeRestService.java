@@ -49,10 +49,10 @@ public class VehiculeRestService {
 	
 	
 	
-	@RequestMapping(value="/halima",method=RequestMethod.GET)
-	public Vehicule getVehicule(){
-	 return vehiculeRep.findvVehiculeBytypeVehicule();
-	}
+//	@RequestMapping(value="/halima",method=RequestMethod.GET)
+//	public Vehicule getVehicule(){
+//	 return vehiculeRep.findvVehiculeBytypeVehicule();
+//	}
 //	
 //	@RequestMapping(value="/halima2",method=RequestMethod.GET)
 //	public Vehicule getVehicule1(){

@@ -44,23 +44,23 @@ public class DepenseRestService {
 	}
 	
 	
-	@RequestMapping(value="/essai",method=RequestMethod.GET)
-	public Depense getDepenses1(){
-		return depenseRep.findbyfour();
-	}
-	@RequestMapping(value="/essai2",method=RequestMethod.GET)
-	public Depense getDepenses2(){
-		return depenseRep.findByidimm();
-	}
-	@RequestMapping(value="/essai3",method=RequestMethod.GET)
-	public Depense getDepenses3(){
-		return depenseRep.findByPiece();
-	}
-	
-	@RequestMapping(value="/essai4",method=RequestMethod.GET)
-	public Depense getDepenses4(){
-		return depenseRep.findbydepCar();
-	}
+//	@RequestMapping(value="/essai",method=RequestMethod.GET)
+//	public Depense getDepenses1(){
+//		return depenseRep.findbyfour();
+//	}
+//	@RequestMapping(value="/essai2",method=RequestMethod.GET)
+//	public Depense getDepenses2(){
+//		return depenseRep.findByidimm();
+//	}
+//	@RequestMapping(value="/essai3",method=RequestMethod.GET)
+//	public Depense getDepenses3(){
+//		return depenseRep.findByPiece();
+//	}
+//	
+//	@RequestMapping(value="/essai4",method=RequestMethod.GET)
+//	public Depense getDepenses4(){
+//		return depenseRep.findbydepCar();
+//	}
 	
 	
 

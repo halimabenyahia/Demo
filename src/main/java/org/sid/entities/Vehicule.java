@@ -44,45 +44,42 @@ public class Vehicule {
 	private Long montant_visit_tech ;
 	
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="id_typeVehicule")
 	private TypeVehicule type_vehicule ;
 	
 	@OneToOne
 	@JoinColumn(name="id_typeBoite")
-private TypeBoite type_boite ;
+    private TypeBoite type_boite ;
 	
 	@OneToOne
 	@JoinColumn(name="id_energie")
 	private Energie energie_v ;
 	
-//	@OneToOne
-	//@JoinColumn(name="id_affectation")
-//	private AffectationVehicule affectation_vehicule ;
-//	
-//	@OneToOne
-//	@JoinColumn (name="id_contrat")
-//	private ContratAssurance contrat_assurance ;
-//	
-//	@OneToOne
-//	@JoinColumn(name="id_marque")
-//	private Marque marque_v ;
-//	
-//	@OneToOne
-//	@JoinColumn(name="id_modele")
-//	private Modele modele_v ;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="id_chauffeur")
-//	private Chauffeurs chauffeur_v ;
-//	
+	@OneToOne
+	@JoinColumn(name="id_affectation")
+	private AffectationVehicule affectation_vehicule ;
+	
+	@OneToOne
+	@JoinColumn (name="id_contrat")
+	private ContratAssurance contrat_assurance ;
+	
+	@OneToOne
+	@JoinColumn(name="id_marque")
+	private Marque marque_v ;
+	
+
+	@ManyToOne
+	@JoinColumn(name="id_chauffeur")
+	private Chauffeurs chauffeur_v ;
+	
 	@ManyToOne
 	@JoinColumn(name="id_depense")
 	private Depense depense_v ;
 	
-//	@ManyToOne
-//	@JoinColumn(name="id_programme")
-//	private ProgrammeEntretien prog_v ;
+	@ManyToOne
+	@JoinColumn(name="id_programme")
+	private ProgrammeEntretien prog_v ;
 
 	public String getId_immatriculation() {
 		return id_immatriculation;
@@ -235,46 +232,38 @@ private TypeBoite type_boite ;
 		this.energie_v = energie_v;
 	}
 
-//	public AffectationVehicule getAffectation_vehicule() {
-//		return affectation_vehicule;
-//	}
-//
-//	public void setAffectation_vehicule(AffectationVehicule affectation_vehicule) {
-//		this.affectation_vehicule = affectation_vehicule;
-//	}
-//
-//	public ContratAssurance getContrat_assurance() {
-//		return contrat_assurance;
-//	}
-//
-//	public void setContrat_assurance(ContratAssurance contrat_assurance) {
-//		this.contrat_assurance = contrat_assurance;
-//	}
-////
-//	public Marque getMarque_v() {
-//		return marque_v;
-//	}
-//
-//	public void setMarque_v(Marque marque_v) {
-//		this.marque_v = marque_v;
-//	}
-//
-//	public Modele getModele_v() {
-//		return modele_v;
-//	}
-//
-//	public void setModele_v(Modele modele_v) {
-//		this.modele_v = modele_v;
-//	}
-//
-//	public Chauffeurs getChauffeur_v() {
-//		return chauffeur_v;
-//	}
-//
-//	public void setChauffeur_v(Chauffeurs chauffeur_v) {
-//		this.chauffeur_v = chauffeur_v;
-//	}
-//
+	public AffectationVehicule getAffectation_vehicule() {
+		return affectation_vehicule;
+	}
+
+	public void setAffectation_vehicule(AffectationVehicule affectation_vehicule) {
+		this.affectation_vehicule = affectation_vehicule;
+	}
+
+	public ContratAssurance getContrat_assurance() {
+		return contrat_assurance;
+	}
+
+	public void setContrat_assurance(ContratAssurance contrat_assurance) {
+		this.contrat_assurance = contrat_assurance;
+	}
+
+	public Marque getMarque_v() {
+		return marque_v;
+	}
+
+	public void setMarque_v(Marque marque_v) {
+		this.marque_v = marque_v;
+	}
+
+	public Chauffeurs getChauffeur_v() {
+		return chauffeur_v;
+	}
+
+	public void setChauffeur_v(Chauffeurs chauffeur_v) {
+		this.chauffeur_v = chauffeur_v;
+	}
+
 	public Depense getDepense_v() {
 		return depense_v;
 	}
@@ -282,21 +271,21 @@ private TypeBoite type_boite ;
 	public void setDepense_v(Depense depense_v) {
 		this.depense_v = depense_v;
 	}
-//
-//	public ProgrammeEntretien getProg_v() {
-//		return prog_v;
-//	}
-//
-//	public void setProg_v(ProgrammeEntretien prog_v) {
-//		this.prog_v = prog_v;
-//	}
+
+	public ProgrammeEntretien getProg_v() {
+		return prog_v;
+	}
+
+	public void setProg_v(ProgrammeEntretien prog_v) {
+		this.prog_v = prog_v;
+	}
 
 	public Vehicule(String id_immatriculation, Date date_m_c, Date date_acq, Long cout_achat, Long compteur,
 			String num_moteur, String num_fab, Date date_deb_taxe, Date date_fin_taxe, Long montant_taxe,
 			Date date_deb_vig, Date date_fin_vig, Long montant_vig, Date date_deb_visit_tech, Date date_fin_visit_tech,
 			Long montant_visit_tech, TypeVehicule type_vehicule, TypeBoite type_boite, Energie energie_v,
-			AffectationVehicule affectation_vehicule, ContratAssurance contrat_assurance, Marque marque_v,
-			Modele modele_v, Chauffeurs chauffeur_v, Depense depense_v, ProgrammeEntretien prog_v) {
+			AffectationVehicule affectation_vehicule, ContratAssurance contrat_assurance, Marque marque_v
+			, Chauffeurs chauffeur_v, Depense depense_v, ProgrammeEntretien prog_v) {
 		super();
 		this.id_immatriculation = id_immatriculation;
 		this.date_m_c = date_m_c;
@@ -315,15 +304,14 @@ private TypeBoite type_boite ;
 		this.date_fin_visit_tech = date_fin_visit_tech;
 		this.montant_visit_tech = montant_visit_tech;
      	this.type_vehicule = type_vehicule;
-	this.type_boite = type_boite;
-	this.energie_v = energie_v;
-//		this.affectation_vehicule = affectation_vehicule;
-//		this.contrat_assurance = contrat_assurance;
-//		this.marque_v = marque_v;
-//		this.modele_v = modele_v;
-//		this.chauffeur_v = chauffeur_v;
-	this.depense_v = depense_v;
-//		this.prog_v = prog_v;
+        this.type_boite = type_boite;
+	    this.energie_v = energie_v;
+    	this.affectation_vehicule = affectation_vehicule;
+		this.contrat_assurance = contrat_assurance;
+		this.marque_v = marque_v;
+		this.chauffeur_v = chauffeur_v;
+	    this.depense_v = depense_v;
+		this.prog_v = prog_v;
 	}
 
 	public Vehicule() {

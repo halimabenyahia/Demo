@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface VehiculeRepository extends JpaRepository<Vehicule, String> {
 
-	@Query("from Vehicule v where v.type_vehicule = 1 ")
-	public Vehicule findvVehiculeBytypeVehicule();
+//	@Query("from Vehicule v where v.type_vehicule = 1 ")
+//	public Vehicule findvVehiculeBytypeVehicule();
 //
 //    @Query("from Vehicule v where v.type_boite = 2")
 //    public Vehicule findVehiculeByTypeBoite();

@@ -14,9 +14,9 @@ public class EntretienFrequence {
 	private Long kilometrage ;
 	
 	
-//	@OneToOne
-//	@JoinColumn(name="id_programme")
-//	private ProgrammeEntretien programme_ent_freq ;
+	@OneToOne
+	@JoinColumn(name="id_programme")
+	private ProgrammeEntretien programme_ent_freq ;
 
 
 	public int getId_entretienFreq() {
@@ -38,21 +38,21 @@ public class EntretienFrequence {
 		this.kilometrage = kilometrage;
 	}
 
-//	public ProgrammeEntretien getProgramme_ent_freq() {
-//		return programme_ent_freq;
-//	}
-//
-//
-//	public void setProgramme_ent_freq(ProgrammeEntretien programme_ent_freq) {
-//		this.programme_ent_freq = programme_ent_freq;
-//	}
+	public ProgrammeEntretien getProgramme_ent_freq() {
+		return programme_ent_freq;
+	}
+
+
+	public void setProgramme_ent_freq(ProgrammeEntretien programme_ent_freq) {
+		this.programme_ent_freq = programme_ent_freq;
+	}
 
 
 	public EntretienFrequence(int id_entretienFreq, Long kilometrage, ProgrammeEntretien programme_ent_freq) {
 		super();
 		this.id_entretienFreq = id_entretienFreq;
 		this.kilometrage = kilometrage;
-	//	this.programme_ent_freq = programme_ent_freq;
+		this.programme_ent_freq = programme_ent_freq;
 	}
 
 
