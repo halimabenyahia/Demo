@@ -5,6 +5,7 @@ import java.util.List;
 import org.sid.dao.ChauffeursRepository;
 import org.sid.entities.Chauffeurs;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins="*")
 public class ChauffeursRestService {
 	
 	@Autowired
@@ -28,7 +30,7 @@ public class ChauffeursRestService {
 	}
 	
 	@RequestMapping(value="/addChauffeur",method=RequestMethod.POST)
-	public Chauffeurs save(@RequestBody Chauffeurs c){
+	public Chauffeurs addChauffeur(@RequestBody Chauffeurs c){
 		return chauffRep.save(c);
 	}
 	
@@ -39,7 +41,8 @@ public class ChauffeursRestService {
 	}
 	
 	@RequestMapping(value="/editChauffeur/{id}",method=RequestMethod.PUT)
-	public Chauffeurs edit(@RequestBody Chauffeurs c){
+	public Chauffeurs edit(@PathVariable int id ,@RequestBody Chauffeurs c){
+		c.setId_chauffeur(id);
 		 return chauffRep.save(c);
 	}
 
