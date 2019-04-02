@@ -31,7 +31,7 @@ public class AffectationVehiculeRestService {
 	}
 	
 	@RequestMapping(value="/addAffectation",method=RequestMethod.POST)
-	public AffectationVehicule save(@RequestBody AffectationVehicule c){
+	public AffectationVehicule addAffectation(@RequestBody AffectationVehicule c){
 		return affectationVehiculeRep.save(c);
 	}
 	

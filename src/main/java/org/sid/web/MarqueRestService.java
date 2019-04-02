@@ -31,7 +31,7 @@ public class MarqueRestService {
 	}
 	
 	@RequestMapping(value="/addMarque",method=RequestMethod.POST)
-	public Marque save(@RequestBody Marque c){
+	public Marque addMarque(@RequestBody Marque c){
 		return marqueRep.save(c);
 	}
 	

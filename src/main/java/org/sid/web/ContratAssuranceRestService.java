@@ -30,7 +30,7 @@ public class ContratAssuranceRestService {
 	}
 	
 	@RequestMapping(value="/addContrat",method=RequestMethod.POST)
-	public ContratAssurance save(@RequestBody ContratAssurance c){
+	public ContratAssurance addContrat(@RequestBody ContratAssurance c){
 		return contratAssRep.save(c);
 	}
 	

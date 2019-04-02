@@ -30,7 +30,7 @@ public class TypeBoiteRestService {
 	}
 	
 	@RequestMapping(value="/addtypeBoite",method=RequestMethod.POST)
-	public TypeBoite save(@RequestBody TypeBoite c){
+	public TypeBoite addBoite(@RequestBody TypeBoite c){
 		return typeBoiteRep.save(c);
 	}
 	

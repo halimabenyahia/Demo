@@ -30,7 +30,7 @@ public class ModeleRestService {
 	}
 	
 	@RequestMapping(value="/addModele",method=RequestMethod.POST)
-	public Modele save(@RequestBody Modele c){
+	public Modele addModele(@RequestBody Modele c){
 		return modeleRep.save(c);
 	}
 	

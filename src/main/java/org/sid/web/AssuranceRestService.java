@@ -30,7 +30,7 @@ public class AssuranceRestService {
 	}
 	
 	@RequestMapping(value="/addAssurance",method=RequestMethod.POST)
-	public Assurance save(@RequestBody Assurance c){
+	public Assurance addAssurance(@RequestBody Assurance c){
 		return assuranceRep.save(c);
 	}
 	

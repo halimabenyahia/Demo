@@ -24,7 +24,7 @@ public class ContratAssurance {
 	private Date date_fin_contrat ;
 	private String num_police ;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="id_assurance")
 	private Assurance assurance_c ;
 	

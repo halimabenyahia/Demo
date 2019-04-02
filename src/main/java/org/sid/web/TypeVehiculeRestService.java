@@ -30,7 +30,7 @@ public class TypeVehiculeRestService {
 	}
 	
 	@RequestMapping(value="/addtypeVehicule",method=RequestMethod.POST)
-	public TypeVehicule save(@RequestBody TypeVehicule c){
+	public TypeVehicule addTypeV(@RequestBody TypeVehicule c){
 		return typeVehiculeRep.save(c);
 	}
 	

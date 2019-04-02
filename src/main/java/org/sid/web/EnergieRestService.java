@@ -30,7 +30,7 @@ public class EnergieRestService {
 	}
 	
 	@RequestMapping(value="/addEnergie",method=RequestMethod.POST)
-	public Energie save(@RequestBody Energie c){
+	public Energie addEnergie(@RequestBody Energie c){
 		return energieRep.save(c);
 	}
 	
