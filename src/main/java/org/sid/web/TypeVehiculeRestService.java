@@ -35,12 +35,12 @@ public class TypeVehiculeRestService {
 	}
 	
 	@RequestMapping(value="/deleteTypeVehicule/{id}",method=RequestMethod.DELETE)
-	public boolean supprimer(@PathVariable int id){
+	public boolean supprimerTypeV(@PathVariable int id){
 		typeVehiculeRep.delete(id);
 		 return true;
 	}
 	
-	@RequestMapping(value="/editTypeVehicule",method=RequestMethod.PUT)
+	@RequestMapping(value="/editTypeVehicule/{id}",method=RequestMethod.PUT)
 	public TypeVehicule edittypeVehicule(@RequestBody TypeVehicule c){
 		 return typeVehiculeRep.save(c);
 	}

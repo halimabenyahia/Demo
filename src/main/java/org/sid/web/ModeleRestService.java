@@ -35,13 +35,13 @@ public class ModeleRestService {
 	}
 	
 	@RequestMapping(value="/deleteModele/{id}",method=RequestMethod.DELETE)
-	public boolean supprimer(@PathVariable int id){
+	public boolean supprimerModele(@PathVariable int id){
 		modeleRep.delete(id);
 		 return true;
 	}
 	
-	@RequestMapping(value="/editModele",method=RequestMethod.PUT)
-	public Modele edit(@RequestBody Modele c){
+	@RequestMapping(value="/editModele/{id}",method=RequestMethod.PUT)
+	public Modele editModele(@RequestBody Modele c){
 		 return modeleRep.save(c);
 	}
 

@@ -34,12 +34,12 @@ public class EnergieRestService {
 		return energieRep.save(c);
 	}
 	
-	@RequestMapping(value="/deleteEnergie",method=RequestMethod.DELETE)
-	public boolean supprimer(@PathVariable int id){
+	@RequestMapping(value="/deleteEnergie/{id}",method=RequestMethod.DELETE)
+	public boolean supprimerEnergie(@PathVariable int id){
 		energieRep.delete(id);
 		 return true;
 	}
-	@RequestMapping(value="/editEnergie",method=RequestMethod.PUT)
+	@RequestMapping(value="/editEnergie/{id}",method=RequestMethod.PUT)
 	public Energie edit(@RequestBody Energie c){
 		 return energieRep.save(c);
 	}

@@ -36,13 +36,13 @@ public class MarqueRestService {
 	}
 	
 	@RequestMapping(value="/deleteMarque/{id}",method=RequestMethod.DELETE)
-	public boolean supprimer(@PathVariable int id){
+	public boolean supprimerMarque(@PathVariable int id){
 		marqueRep.delete(id);
 		 return true;
 	}
 	
-	@RequestMapping(value="/editMarque",method=RequestMethod.PUT)
-	public Marque edit(@RequestBody Marque c){
+	@RequestMapping(value="/editMarque/{id}",method=RequestMethod.PUT)
+	public Marque editMarque(@RequestBody Marque c){
 		 return marqueRep.save(c);
 	}
 	
