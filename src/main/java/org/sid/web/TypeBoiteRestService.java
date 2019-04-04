@@ -25,7 +25,7 @@ public class TypeBoiteRestService {
 	}
 
 	@RequestMapping(value="/typeBoiteById/{id}",method=RequestMethod.GET)
-	public TypeBoite getTypeBoite(@PathVariable int id){
+	public TypeBoite getTypeBoiteById(@PathVariable int id){
 		return typeBoiteRep.findOne(id);
 	}
 	

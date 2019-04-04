@@ -25,7 +25,7 @@ public class EnergieRestService {
 	}
 
 	@RequestMapping(value="/energieById/{id}",method=RequestMethod.GET)
-	public Energie getEnergie(@PathVariable int id){
+	public Energie getEnergieById(@PathVariable int id){
 		return energieRep.findOne(id);
 	}
 	

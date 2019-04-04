@@ -25,7 +25,7 @@ public class ContratAssuranceRestService {
 	}
 
 	@RequestMapping(value="/contratAssrance/{id}",method=RequestMethod.GET)
-	public ContratAssurance getContratAss(@PathVariable int id){
+	public ContratAssurance getContratAssById(@PathVariable int id){
 		return contratAssRep.findOne(id);
 	}
 	

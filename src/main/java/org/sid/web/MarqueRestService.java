@@ -26,7 +26,7 @@ public class MarqueRestService {
 	}
 
 	@RequestMapping(value="/marqueById/{id}",method=RequestMethod.GET)
-	public Marque getMarques(@PathVariable int id){
+	public Marque getMarquesById(@PathVariable int id){
 		return marqueRep.findOne(id);
 	}
 	

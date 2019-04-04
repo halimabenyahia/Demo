@@ -25,7 +25,7 @@ public class ModeleRestService {
 	}
 
 	@RequestMapping(value="/modeleById/{id}",method=RequestMethod.GET)
-	public Modele getModele(@PathVariable int id){
+	public Modele getModeleById(@PathVariable int id){
 		return modeleRep.findOne(id);
 	}
 	

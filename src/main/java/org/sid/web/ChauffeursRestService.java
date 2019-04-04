@@ -25,7 +25,7 @@ public class ChauffeursRestService {
 	}
 
 	@RequestMapping(value="/chauffeurById/{id}",method=RequestMethod.GET)
-	public Chauffeurs getChauffeurs(@PathVariable int id){
+	public Chauffeurs getChauffeursById(@PathVariable int id){
 		return chauffRep.findOne(id);
 	}
 	

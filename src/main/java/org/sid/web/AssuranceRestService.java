@@ -24,8 +24,8 @@ public class AssuranceRestService {
 		return assuranceRep.findAll();
 	}
 
-	@RequestMapping(value="/Assurance/{id}",method=RequestMethod.GET)
-	public Assurance getAssurance(@PathVariable int id){
+	@RequestMapping(value="/AssuranceByid/{id}",method=RequestMethod.GET)
+	public Assurance getAssuranceById(@PathVariable int id){
 		return assuranceRep.findOne(id);
 	}
 	

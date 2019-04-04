@@ -26,7 +26,7 @@ public class AffectationVehiculeRestService {
 	}
 
 	@RequestMapping(value="/affectationById/{id}",method=RequestMethod.GET)
-	public AffectationVehicule getAffectation(@PathVariable int id){
+	public AffectationVehicule getAffectationById(@PathVariable int id){
 		return affectationVehiculeRep.findOne(id);
 	}
 	
