@@ -13,13 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins="*")
+
+
 public class VehiculeRestService {
 	
 	@Autowired
 	private VehiculeRepository vehiculeRep ;
 	
 	@RequestMapping(value="/vehicules",method=RequestMethod.GET)
+	@CrossOrigin
 	public List<Vehicule> getAllVehicule(){
 		return vehiculeRep.findAll();
 	}
@@ -44,6 +46,7 @@ public class VehiculeRestService {
 	public Vehicule editVehicule(@RequestBody Vehicule c){
 		
 		 return vehiculeRep.save(c);
+	
 	}
 	
 	

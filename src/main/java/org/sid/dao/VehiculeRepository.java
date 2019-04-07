@@ -5,6 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface VehiculeRepository extends JpaRepository<Vehicule, String> {
+	
+//  @Query("from Vehicule v where v.energie_v like = 1")
+//  public Vehicule findByEnergie();
 
 //	@Query("from Vehicule v where v.type_vehicule = 1 ")
 //	public Vehicule findvVehiculeBytypeVehicule();
@@ -12,8 +15,7 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, String> {
 //    @Query("from Vehicule v where v.type_boite = 2")
 //    public Vehicule findVehiculeByTypeBoite();
 //    
-//    @Query("from Vehicule v where v.energie_v = 1")
-//    public Vehicule findByEnergie();
+
 //    
 //    @Query("from Vehicule v where v.affectation_vehicule = 1")
 //    public Vehicule findByAffec();

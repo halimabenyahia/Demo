@@ -22,15 +22,16 @@ public class DemoApplicationTests {
 	private VehiculeRestService vehiculeService ;
 
 	@Test
-	public void testGetAll() {
+	public void testGetAllVehicule() {
 		Collection<Vehicule> list= vehiculeService.getAllVehicule();
-		Assert.assertNotNull("error!", list);
-		Assert.assertEquals("error", 2, list.size());
+		Assert.assertNotNull("error!", list); //vérifie si l'objet n'est pas null
 	}
 	
 	
 	@Before
-	public void before() {}
+	public void before() {
+	
+	}
 	
 	@After
 	public void after() {}

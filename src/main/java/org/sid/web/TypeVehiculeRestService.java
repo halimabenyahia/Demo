@@ -25,7 +25,7 @@ public class TypeVehiculeRestService {
 	}
 
 	@RequestMapping(value="/typeVehiculeById/{id}",method=RequestMethod.GET)
-	public TypeVehicule getEnergie(@PathVariable int id){
+	public TypeVehicule getTypeVehiculeById(@PathVariable int id){
 		return typeVehiculeRep.findOne(id);
 	}
 	
