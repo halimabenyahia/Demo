@@ -8,8 +8,8 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, String> {
 	
 	
 	
-//  @Query("from Vehicule v where v.energie_v like = 1")
-//  public Vehicule findByEnergie();
+  @Query("from Vehicule v where v.assurance_vehicule = 1")
+  public Vehicule findByAssurance();
 
 //	@Query("from Vehicule v where v.type_vehicule = 1 ")
 //	public Vehicule findvVehiculeBytypeVehicule();

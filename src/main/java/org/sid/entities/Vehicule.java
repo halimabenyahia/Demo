@@ -46,6 +46,11 @@ public class Vehicule {
 	@Temporal(TemporalType.DATE)
 	private Date date_fin_visit_tech ;
 	private Long montant_visit_tech ;
+	@Temporal(TemporalType.DATE)
+	private Date date_deb_contrat ;
+	@Temporal(TemporalType.DATE)
+	private Date date_fin_contrat ;
+	private Long montant_contratAss ;
 	
 	
 	@OneToOne
@@ -65,19 +70,26 @@ public class Vehicule {
 	@JoinColumn(name="id_affectation")
 	private AffectationVehicule affectation_vehicule ;
 	
-	@OneToOne
-	@JoinColumn (name="id_contrat")
-	private ContratAssurance contrat_assurance ;
+
 	
 	@OneToOne
 	@JoinColumn(name="id_marque")
 	private Marque marque_v ;
+	
+	@OneToOne
+	@JoinColumn(name="id_modele")
+	private Modele modele_v ;
 	
 
 	@ManyToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name="id_chauffeur")
 	private Chauffeurs chauffeur_v ;
+	
+	
+	@OneToOne
+	@JoinColumn(name="id_assurance")
+	private Assurance assurance_vehicule ;
 	
 	@ManyToOne
 	@JoinColumn(name="id_depense")
@@ -99,6 +111,42 @@ public class Vehicule {
 	    marque_v.setId_marque(id_marque);;
 	}
 	
+	@JsonProperty("id_modele")
+	private void unpackmodele(Integer id_modele) {
+	    this.modele_v = new Modele();
+	    modele_v.setId_modele(id_modele);
+	}
+	
+	@JsonProperty("id_typeBoite")
+	private void unpacktypeBoite(Integer id_typeBoite) {
+	    this.type_boite = new TypeBoite();
+	    type_boite.setId_typeBoite(id_typeBoite);
+	}
+	
+	@JsonProperty("id_energie")
+	private void unpackenergie(Integer id_energie) {
+	    this.energie_v = new Energie();
+	    energie_v.setId_energie(id_energie);
+	}
+	
+	@JsonProperty("id_assurance")
+	private void unpackassurance(Integer id_assurance) {
+	    this.assurance_vehicule = new Assurance();
+	    assurance_vehicule.setId_assurance(id_assurance);
+	}
+	
+	@JsonProperty("id_typeVehicule")
+	private void unpacktypeVehicule(Integer id_typeVehicule) {
+	    this.type_vehicule = new TypeVehicule();
+	    type_vehicule.setId_typeVehicule(id_typeVehicule);
+	}
+	
+	@JsonProperty("id_affectation")
+	private void unpackaffectation(Integer id_affectation) {
+	    this.affectation_vehicule = new AffectationVehicule();
+	    affectation_vehicule.setId_affectation(id_affectation);
+	}
+
 	public String getId_immatriculation() {
 		return id_immatriculation;
 	}
@@ -227,6 +275,30 @@ public class Vehicule {
 		this.montant_visit_tech = montant_visit_tech;
 	}
 
+	public Date getDate_deb_contrat() {
+		return date_deb_contrat;
+	}
+
+	public void setDate_deb_contrat(Date date_deb_contrat) {
+		this.date_deb_contrat = date_deb_contrat;
+	}
+
+	public Date getDate_fin_contrat() {
+		return date_fin_contrat;
+	}
+
+	public void setDate_fin_contrat(Date date_fin_contrat) {
+		this.date_fin_contrat = date_fin_contrat;
+	}
+
+	public Long getMontant_contratAss() {
+		return montant_contratAss;
+	}
+
+	public void setMontant_contratAss(Long montant_contratAss) {
+		this.montant_contratAss = montant_contratAss;
+	}
+
 	public TypeVehicule getType_vehicule() {
 		return type_vehicule;
 	}
@@ -236,7 +308,8 @@ public class Vehicule {
 	}
 
 	public TypeBoite getType_boite() {
-		return type_boite;	}
+		return type_boite;
+	}
 
 	public void setType_boite(TypeBoite type_boite) {
 		this.type_boite = type_boite;
@@ -258,20 +331,20 @@ public class Vehicule {
 		this.affectation_vehicule = affectation_vehicule;
 	}
 
-	public ContratAssurance getContrat_assurance() {
-		return contrat_assurance;
-	}
-
-	public void setContrat_assurance(ContratAssurance contrat_assurance) {
-		this.contrat_assurance = contrat_assurance;
-	}
-
 	public Marque getMarque_v() {
 		return marque_v;
 	}
 
 	public void setMarque_v(Marque marque_v) {
 		this.marque_v = marque_v;
+	}
+
+	public Modele getModele_v() {
+		return modele_v;
+	}
+
+	public void setModele_v(Modele modele_v) {
+		this.modele_v = modele_v;
 	}
 
 	public Chauffeurs getChauffeur_v() {
@@ -297,13 +370,24 @@ public class Vehicule {
 	public void setProg_v(ProgrammeEntretien prog_v) {
 		this.prog_v = prog_v;
 	}
+	
+	
+
+	public Assurance getAssurance_vehicule() {
+		return assurance_vehicule;
+	}
+
+	public void setAssurance_vehicule(Assurance assurance_vehicule) {
+		this.assurance_vehicule = assurance_vehicule;
+	}
 
 	public Vehicule(String id_immatriculation, Date date_m_c, Date date_acq, Long cout_achat, Long compteur,
 			String num_moteur, String num_fab, Date date_deb_taxe, Date date_fin_taxe, Long montant_taxe,
 			Date date_deb_vig, Date date_fin_vig, Long montant_vig, Date date_deb_visit_tech, Date date_fin_visit_tech,
-			Long montant_visit_tech, TypeVehicule type_vehicule, TypeBoite type_boite, Energie energie_v,
-			AffectationVehicule affectation_vehicule, ContratAssurance contrat_assurance, Marque marque_v
-			, Chauffeurs chauffeur_v, Depense depense_v, ProgrammeEntretien prog_v) {
+			Long montant_visit_tech, Date date_deb_contrat, Date date_fin_contrat, Long montant_contratAss,
+			TypeVehicule type_vehicule, TypeBoite type_boite, Energie energie_v,
+			AffectationVehicule affectation_vehicule, Marque marque_v, Modele modele_v, Chauffeurs chauffeur_v,
+			Depense depense_v, ProgrammeEntretien prog_v , Assurance assurance_vehicule) {
 		super();
 		this.id_immatriculation = id_immatriculation;
 		this.date_m_c = date_m_c;
@@ -321,20 +405,27 @@ public class Vehicule {
 		this.date_deb_visit_tech = date_deb_visit_tech;
 		this.date_fin_visit_tech = date_fin_visit_tech;
 		this.montant_visit_tech = montant_visit_tech;
-     	this.type_vehicule = type_vehicule;
-        this.type_boite = type_boite;
-	    this.energie_v = energie_v;
-    	this.affectation_vehicule = affectation_vehicule;
-		this.contrat_assurance = contrat_assurance;
+		this.date_deb_contrat = date_deb_contrat;
+		this.date_fin_contrat = date_fin_contrat;
+		this.montant_contratAss = montant_contratAss;
+		this.type_vehicule = type_vehicule;
+		this.type_boite = type_boite;
+		this.energie_v = energie_v;
+		this.affectation_vehicule = affectation_vehicule;
 		this.marque_v = marque_v;
+		this.modele_v = modele_v;
 		this.chauffeur_v = chauffeur_v;
-	    this.depense_v = depense_v;
+		this.depense_v = depense_v;
 		this.prog_v = prog_v;
+		this.assurance_vehicule=assurance_vehicule;
 	}
 
 	public Vehicule() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
 	
 }
