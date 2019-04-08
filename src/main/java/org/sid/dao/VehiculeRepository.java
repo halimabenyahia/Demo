@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface VehiculeRepository extends JpaRepository<Vehicule, String> {
 	
+	
+	
 //  @Query("from Vehicule v where v.energie_v like = 1")
 //  public Vehicule findByEnergie();
 

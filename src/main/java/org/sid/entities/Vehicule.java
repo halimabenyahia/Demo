@@ -13,6 +13,8 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 @Entity
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -84,7 +86,19 @@ public class Vehicule {
 	@ManyToOne
 	@JoinColumn(name="id_programme")
 	private ProgrammeEntretien prog_v ;
+	
+	@JsonProperty("id_chauffeur")
+	private void unpackNested(Integer id_chauffeur) {
+	    this.chauffeur_v = new Chauffeurs();
+	    chauffeur_v.setId_chauffeur(id_chauffeur);
+	}
 
+	@JsonProperty("id_marque")
+	private void unpackmarque(Integer id_marque) {
+	    this.marque_v = new Marque();
+	    marque_v.setId_marque(id_marque);;
+	}
+	
 	public String getId_immatriculation() {
 		return id_immatriculation;
 	}

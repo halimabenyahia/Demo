@@ -22,10 +22,10 @@ public class DemoApplication implements CommandLineRunner{
 	}
 	
 	
-	protected void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("*").allowCredentials(true).allowedMethods("GET","POST","PUT","DELETE");
-        super.addCorsMappings(registry);
-    }
+//	protected void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**").allowedOrigins("*").allowCredentials(true).allowedMethods("GET","POST","PUT","DELETE");
+//        super.addCorsMappings(registry);
+//    }
 
 	@Override
 	public void run(String... args) throws Exception {
