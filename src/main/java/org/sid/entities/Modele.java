@@ -12,9 +12,6 @@ public class Modele {
 	private int id_modele ;
 	private String des_modele ;
 	
-	//@OneToMany
-	//@JoinColumn(name="id_marque")
-	//private List<Marque> marque ;
 	
 	public int getId_modele() {
 		return id_modele;
