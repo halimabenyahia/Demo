@@ -40,7 +40,7 @@ public class TypeBoiteRestService {
 		 return true;
 	}
 	
-	@RequestMapping(value="/editTypeBoite/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/editTypeBoite",method=RequestMethod.PUT)
 	public TypeBoite edit(@RequestBody TypeBoite c){
 		 return typeBoiteRep.save(c);
 	}

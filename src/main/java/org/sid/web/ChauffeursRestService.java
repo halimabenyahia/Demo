@@ -40,9 +40,8 @@ public class ChauffeursRestService {
 		 return true;
 	}
 	
-	@RequestMapping(value="/editChauffeur/{id}",method=RequestMethod.PUT)
-	public Chauffeurs edit(@PathVariable int id ,@RequestBody Chauffeurs c){
-		c.setId_chauffeur(id);
+	@RequestMapping(value="/editChauffeur",method=RequestMethod.PUT)
+	public Chauffeurs edit(@RequestBody Chauffeurs c){
 		 return chauffRep.save(c);
 	}
 

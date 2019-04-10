@@ -41,7 +41,7 @@ public class MarqueRestService {
 		 return true;
 	}
 	
-	@RequestMapping(value="/editMarque/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/editMarque",method=RequestMethod.PUT)
 	public Marque editMarque(@RequestBody Marque c){
 		 return marqueRep.save(c);
 	}

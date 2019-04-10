@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @Entity
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Vehicule {
 	
 

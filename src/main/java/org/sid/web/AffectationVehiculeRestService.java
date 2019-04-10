@@ -41,8 +41,8 @@ public class AffectationVehiculeRestService {
 		 return true;
 	}
 	
-	@RequestMapping(value="/editAffectation/{id}",method=RequestMethod.PUT)
-	public AffectationVehicule editAffectation(@RequestBody AffectationVehicule c){
+	@RequestMapping(value="/editAffectation",method=RequestMethod.PUT)
+	public AffectationVehicule edit(@RequestBody AffectationVehicule c){
 		 return affectationVehiculeRep.save(c);
 	}
 

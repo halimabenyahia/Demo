@@ -40,7 +40,7 @@ public class AssuranceRestService {
 		 return true;
 	}
 	
-	@RequestMapping(value="/editAssurance/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/editAssurance",method=RequestMethod.PUT)
 	public Assurance editAssurance(@RequestBody Assurance c){
 		 return assuranceRep.save(c);
 	}

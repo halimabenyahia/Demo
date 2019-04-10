@@ -40,7 +40,7 @@ public class TypeVehiculeRestService {
 		 return true;
 	}
 	
-	@RequestMapping(value="/editTypeVehicule/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/editTypeVehicule",method=RequestMethod.PUT)
 	public TypeVehicule edittypeVehicule(@RequestBody TypeVehicule c){
 		 return typeVehiculeRep.save(c);
 	}

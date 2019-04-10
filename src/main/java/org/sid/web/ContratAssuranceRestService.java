@@ -40,7 +40,7 @@ public class ContratAssuranceRestService {
 		 return true;
 	}
 	
-	@RequestMapping(value="/editcontrat/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/editcontrat",method=RequestMethod.PUT)
 	public ContratAssurance editContrat(@RequestBody ContratAssurance c){
 		 return contratAssRep.save(c);
 	}

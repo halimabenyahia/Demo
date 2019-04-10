@@ -39,7 +39,7 @@ public class EnergieRestService {
 		energieRep.delete(id);
 		 return true;
 	}
-	@RequestMapping(value="/editEnergie/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/editEnergie",method=RequestMethod.PUT)
 	public Energie edit(@RequestBody Energie c){
 		 return energieRep.save(c);
 	}
