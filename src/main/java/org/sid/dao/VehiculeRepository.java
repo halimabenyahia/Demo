@@ -4,7 +4,7 @@ import org.sid.entities.Vehicule;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface VehiculeRepository extends JpaRepository<Vehicule, String> {
+public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
 	
 	
 	

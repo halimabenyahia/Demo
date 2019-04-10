@@ -27,7 +27,7 @@ public class VehiculeRestService {
 	}
 
 	@RequestMapping(value="/vehiculeById/{id}",method=RequestMethod.GET)
-	public Vehicule getByIdVehicule(@PathVariable String id){
+	public Vehicule getByIdVehicule(@PathVariable Integer id){
 		return vehiculeRep.findOne(id);
 	}
 	
@@ -37,7 +37,7 @@ public class VehiculeRestService {
 	}
 	
 	@RequestMapping(value="/deleteVehicule/{id}",method=RequestMethod.DELETE)
-	public boolean deleteVehicule(@PathVariable String id){
+	public boolean deleteVehicule(@PathVariable Integer id){
 		vehiculeRep.delete(id);
 		 return true;
 	}

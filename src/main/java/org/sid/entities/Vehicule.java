@@ -3,6 +3,7 @@ package org.sid.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,8 +21,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Vehicule {
 	
 
-	@Id
-	private String id_immatriculation ;
+	@Id @GeneratedValue
+	private int id_vehicule;
+	private String immatriculation ;
 	@Temporal(TemporalType.DATE)
 	private Date date_m_c ;
 	@Temporal(TemporalType.DATE)
@@ -75,9 +77,6 @@ public class Vehicule {
 	@JoinColumn(name="id_marque")
 	private Marque marque_v ;
 	
-	@OneToOne
-	@JoinColumn(name="id_modele")
-	private Modele modele_v ;
 	
 
 	@ManyToOne
@@ -110,11 +109,6 @@ public class Vehicule {
 	    marque_v.setId_marque(id_marque);;
 	}
 	
-	@JsonProperty("id_modele")
-	private void unpackmodele(Integer id_modele) {
-	    this.modele_v = new Modele();
-	    modele_v.setId_modele(id_modele);
-	}
 	
 	@JsonProperty("id_typeBoite")
 	private void unpacktypeBoite(Integer id_typeBoite) {
@@ -146,12 +140,20 @@ public class Vehicule {
 	    affectation_vehicule.setId_affectation(id_affectation);
 	}
 
-	public String getId_immatriculation() {
-		return id_immatriculation;
+	public int getId_vehicule() {
+		return id_vehicule;
 	}
 
-	public void setId_immatriculation(String id_immatriculation) {
-		this.id_immatriculation = id_immatriculation;
+	public void setId_vehicule(int id_vehicule) {
+		this.id_vehicule = id_vehicule;
+	}
+
+	public String getImmatriculation() {
+		return immatriculation;
+	}
+
+	public void setImmatriculation(String immatriculation) {
+		this.immatriculation = immatriculation;
 	}
 
 	public Date getDate_m_c() {
@@ -338,20 +340,20 @@ public class Vehicule {
 		this.marque_v = marque_v;
 	}
 
-	public Modele getModele_v() {
-		return modele_v;
-	}
-
-	public void setModele_v(Modele modele_v) {
-		this.modele_v = modele_v;
-	}
-
 	public Chauffeurs getChauffeur_v() {
 		return chauffeur_v;
 	}
 
 	public void setChauffeur_v(Chauffeurs chauffeur_v) {
 		this.chauffeur_v = chauffeur_v;
+	}
+
+	public Assurance getAssurance_vehicule() {
+		return assurance_vehicule;
+	}
+
+	public void setAssurance_vehicule(Assurance assurance_vehicule) {
+		this.assurance_vehicule = assurance_vehicule;
 	}
 
 	public Depense getDepense_v() {
@@ -369,26 +371,17 @@ public class Vehicule {
 	public void setProg_v(ProgrammeEntretien prog_v) {
 		this.prog_v = prog_v;
 	}
-	
-	
 
-	public Assurance getAssurance_vehicule() {
-		return assurance_vehicule;
-	}
-
-	public void setAssurance_vehicule(Assurance assurance_vehicule) {
-		this.assurance_vehicule = assurance_vehicule;
-	}
-
-	public Vehicule(String id_immatriculation, Date date_m_c, Date date_acq, Long cout_achat, Long compteur,
-			String num_moteur, String num_fab, Date date_deb_taxe, Date date_fin_taxe, Long montant_taxe,
+	public Vehicule(int id_vehicule, String immatriculation, Date date_m_c, Date date_acq, Long cout_achat,
+			Long compteur, String num_moteur, String num_fab, Date date_deb_taxe, Date date_fin_taxe, Long montant_taxe,
 			Date date_deb_vig, Date date_fin_vig, Long montant_vig, Date date_deb_visit_tech, Date date_fin_visit_tech,
 			Long montant_visit_tech, Date date_deb_contrat, Date date_fin_contrat, Long montant_contratAss,
 			TypeVehicule type_vehicule, TypeBoite type_boite, Energie energie_v,
-			AffectationVehicule affectation_vehicule, Marque marque_v, Modele modele_v, Chauffeurs chauffeur_v,
-			Depense depense_v, ProgrammeEntretien prog_v , Assurance assurance_vehicule) {
+			AffectationVehicule affectation_vehicule, Marque marque_v, Chauffeurs chauffeur_v,
+			Assurance assurance_vehicule, Depense depense_v, ProgrammeEntretien prog_v) {
 		super();
-		this.id_immatriculation = id_immatriculation;
+		this.id_vehicule = id_vehicule;
+		this.immatriculation = immatriculation;
 		this.date_m_c = date_m_c;
 		this.date_acq = date_acq;
 		this.cout_achat = cout_achat;
@@ -412,18 +405,17 @@ public class Vehicule {
 		this.energie_v = energie_v;
 		this.affectation_vehicule = affectation_vehicule;
 		this.marque_v = marque_v;
-		this.modele_v = modele_v;
 		this.chauffeur_v = chauffeur_v;
+		this.assurance_vehicule = assurance_vehicule;
 		this.depense_v = depense_v;
 		this.prog_v = prog_v;
-		this.assurance_vehicule=assurance_vehicule;
 	}
 
 	public Vehicule() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	
 	
 	

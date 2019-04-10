@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 @Entity
 public class Marque {
@@ -18,6 +20,13 @@ public class Marque {
 	@ManyToOne
 	@JoinColumn(name="id_modele")
 	private Modele modele_m ;
+	
+	
+	@JsonProperty("id_modele")
+	private void unpackmodele(Integer id_modele) {
+	    this.modele_m = new Modele();
+	    modele_m.setId_modele(id_modele);
+	}
 
 	public int getId_marque() {
 		return id_marque;
