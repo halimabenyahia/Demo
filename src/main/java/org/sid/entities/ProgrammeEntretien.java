@@ -22,9 +22,7 @@ public class ProgrammeEntretien {
 	@Temporal(TemporalType.DATE)
 	private Date date_execution ;
 	
-//	@OneToOne
-//	@JoinColumn(name="id_immatriculation")
-//	private Vehicule vehicule_entretien ;
+
 //	
 	@OneToOne
 	@JoinColumn(name="id_typeEntretien")
@@ -70,13 +68,6 @@ public class ProgrammeEntretien {
 		this.date_execution = date_execution;
 	}
 
-//	public Vehicule getVehicule_entretien() {
-//		return vehicule_entretien;
-//	}
-//
-//	public void setVehicule_entretien(Vehicule vehicule_entretien) {
-//		this.vehicule_entretien = vehicule_entretien;
-//	}
 
 	public TypeEntretien getType_entretien() {
 		return type_entretien;
@@ -87,14 +78,13 @@ public class ProgrammeEntretien {
 	}
 
 	public ProgrammeEntretien(int id_programme, Date date_prev_ent, Long compteur_e, Boolean execution,
-			Date date_execution, Vehicule vehicule_entretien, TypeEntretien type_entretien) {
+			Date date_execution, TypeEntretien type_entretien) {
 		super();
 		this.id_programme = id_programme;
 		this.date_prev_ent = date_prev_ent;
 		this.compteur_e = compteur_e;
 		this.execution = execution;
 		this.date_execution = date_execution;
-		//this.vehicule_entretien = vehicule_entretien;
 		this.type_entretien = type_entretien;
 	}
 

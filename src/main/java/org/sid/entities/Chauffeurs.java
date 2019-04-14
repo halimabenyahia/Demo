@@ -17,9 +17,6 @@ public class Chauffeurs {
 	private String adr_chauff;
 	private String tel_chauff ;
 	
-//	@OneToOne
-//	@JoinColumn(name="id_immatriculation")
-//	private Vehicule vehicule_chauff ;
 	
 	public int getId_chauffeur() {
 		return id_chauffeur;

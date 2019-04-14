@@ -5,6 +5,7 @@ import java.util.List;
 import org.sid.dao.MarqueRepository;
 import org.sid.entities.Marque;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,9 +47,16 @@ public class MarqueRestService {
 		 return marqueRep.save(c);
 	}
 	
-	@RequestMapping(value="/marqueByMo",method=RequestMethod.GET)
-	public Marque getMarquesm(){
-		return marqueRep.findbyModele();
+	@RequestMapping(value="/marqueByParam/{parametre}",method=RequestMethod.GET)
+	public List<Marque> getMarqueParam(@Param("parametre") String parametre){
+		return marqueRep.findByParametreM(parametre);
 	}
+	
+	
+	
+//	@RequestMapping(value="/marqueByMo",method=RequestMethod.GET)
+//	public Marque getMarquesm(){
+//		return marqueRep.findbyModele();
+//	}
 
 }
