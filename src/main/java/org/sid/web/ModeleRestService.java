@@ -3,6 +3,7 @@ package org.sid.web;
 import java.util.List;
 
 import org.sid.dao.ModeleRepository;
+import org.sid.entities.Marque;
 import org.sid.entities.Modele;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,6 +44,12 @@ public class ModeleRestService {
 	@RequestMapping(value="/editModele",method=RequestMethod.PUT)
 	public Modele editModele(@RequestBody Modele c){
 		 return modeleRep.save(c);
+	}
+	
+	
+	@RequestMapping(value="/modeleByParam/{parametre}",method=RequestMethod.GET)
+	public List<Modele> getModeleParam(@PathVariable String parametre){
+		return modeleRep.findByParamModel("%"+parametre+"%");
 	}
 
 }

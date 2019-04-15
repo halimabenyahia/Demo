@@ -44,5 +44,10 @@ public class AssuranceRestService {
 	public Assurance editAssurance(@RequestBody Assurance c){
 		 return assuranceRep.save(c);
 	}
+	
+	@RequestMapping(value="/assuranceByParam/{parametre}",method=RequestMethod.GET)
+	public List<Assurance> getAssuranceParam(@PathVariable String parametre){
+		return assuranceRep.findByParametreAssurance("%"+parametre+"%");
+	}
 
 }

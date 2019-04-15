@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.sid.dao.ChauffeursRepository;
 import org.sid.entities.Chauffeurs;
+import org.sid.entities.Marque;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,6 +44,11 @@ public class ChauffeursRestService {
 	@RequestMapping(value="/editChauffeur",method=RequestMethod.PUT)
 	public Chauffeurs edit(@RequestBody Chauffeurs c){
 		 return chauffRep.save(c);
+	}
+	
+	@RequestMapping(value="/chauffeurByParam/{parametre}",method=RequestMethod.GET)
+	public List<Chauffeurs> getChauffeurParam(@PathVariable String parametre){
+		return chauffRep.findByParametreChauffeur("%"+parametre+"%");
 	}
 
 }

@@ -44,5 +44,10 @@ public class TypeBoiteRestService {
 	public TypeBoite edit(@RequestBody TypeBoite c){
 		 return typeBoiteRep.save(c);
 	}
+	
+	@RequestMapping(value="/boiteByParam/{parametre}",method=RequestMethod.GET)
+	public List<TypeBoite> getBoiteParam(@PathVariable String parametre){
+		return typeBoiteRep.findByParametreBoite("%"+parametre+"%");
+	}
 
 }

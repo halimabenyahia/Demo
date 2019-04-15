@@ -44,5 +44,9 @@ public class EnergieRestService {
 		 return energieRep.save(c);
 	}
 	
+	@RequestMapping(value="/energieByParam/{parametre}",method=RequestMethod.GET)
+	public List<Energie> getEnergieParam(@PathVariable String parametre){
+		return energieRep.findByParametreEnergie("%"+parametre+"%");
+	}
 	
 }

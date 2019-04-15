@@ -3,6 +3,7 @@ package org.sid.web;
 import java.util.List;
 
 import org.sid.dao.TypeVehiculeRepository;
+import org.sid.entities.Marque;
 import org.sid.entities.TypeVehicule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,6 +44,11 @@ public class TypeVehiculeRestService {
 	@RequestMapping(value="/editTypeVehicule",method=RequestMethod.PUT)
 	public TypeVehicule edittypeVehicule(@RequestBody TypeVehicule c){
 		 return typeVehiculeRep.save(c);
+	}
+	
+	@RequestMapping(value="/typevehiculeByParam/{parametre}",method=RequestMethod.GET)
+	public List<TypeVehicule> getTypevehiculeParam(@PathVariable String parametre){
+		return typeVehiculeRep.findByTypeVehiculeParam("%"+parametre+"%");
 	}
 	
 

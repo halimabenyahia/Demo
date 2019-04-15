@@ -48,8 +48,8 @@ public class MarqueRestService {
 	}
 	
 	@RequestMapping(value="/marqueByParam/{parametre}",method=RequestMethod.GET)
-	public List<Marque> getMarqueParam(@Param("parametre") String parametre){
-		return marqueRep.findByParametreM(parametre);
+	public List<Marque> getMarqueParam(@PathVariable String parametre){
+		return marqueRep.findByParametreM("%"+parametre+"%");
 	}
 	
 	
