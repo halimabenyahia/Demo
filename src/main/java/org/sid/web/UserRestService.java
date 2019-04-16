@@ -3,6 +3,7 @@ package org.sid.web;
 import java.util.List;
 
 import org.sid.dao.UserRepository;
+import org.sid.entities.Chauffeurs;
 import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,6 +44,14 @@ public class UserRestService {
 	@RequestMapping(value="/editUser",method=RequestMethod.PUT)
 	public User edit(@RequestBody User c){
 		 return userRep.save(c);
+	}
+	
+	@RequestMapping(value="/etat/{login} {mdp}",method=RequestMethod.GET)
+	public boolean getetatUser(@PathVariable String login,@PathVariable String mdp){
+		boolean flag=false;
+		try{User u=userRep.findUserSingleResult(login, mdp); System.out.print(u.getId_user());flag=true;}catch(Exception e) {flag=false;}
+		
+	return flag;	 
 	}
 
 }

@@ -11,7 +11,7 @@ public class User {
 	private int id_user ;
 	private String login ;
 	private String mdp ;
-	private Boolean etat_admin ;
+	private boolean etat_admin ;
 	public int getId_user() {
 		return id_user;
 	}
