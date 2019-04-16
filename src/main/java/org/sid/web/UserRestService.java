@@ -3,7 +3,6 @@ package org.sid.web;
 import java.util.List;
 
 import org.sid.dao.UserRepository;
-import org.sid.entities.Chauffeurs;
 import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

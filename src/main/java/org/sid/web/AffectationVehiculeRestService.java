@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.sid.dao.AffectationVehiculeRepository;
 import org.sid.entities.AffectationVehicule;
-import org.sid.entities.Marque;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;

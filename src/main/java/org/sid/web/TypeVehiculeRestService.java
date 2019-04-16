@@ -3,7 +3,6 @@ package org.sid.web;
 import java.util.List;
 
 import org.sid.dao.TypeVehiculeRepository;
-import org.sid.entities.Marque;
 import org.sid.entities.TypeVehicule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
