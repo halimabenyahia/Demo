@@ -1,40 +1,38 @@
 package org.sid;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
-
+import org.sid.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
-//	@Autowired
-//    private ContactRepository contactRepository;
-//    
+
     
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 	
-	
-//	protected void addCorsMappings(CorsRegistry registry) {
-//        registry.addMapping("/**").allowedOrigins("*").allowCredentials(true).allowedMethods("GET","POST","PUT","DELETE");
-//        super.addCorsMappings(registry);
-//    }
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-//		DateFormat df=new SimpleDateFormat("dd/MM/yyy");
-//		contactRepository.save(new Contact("ayman", "feki", df.parse("12/01/1984"), "fkiayman@yahoo.fr","22159684", "."));		contactRepository.save(new Contact("ameni", "khlif", df.parse("12/01/1984"), "fkiayman@yahoo.fr","22159684", "."));		
-//	contactRepository.findAll().forEach(c->{System.out.println(c.getNom());	});	
-//		
-//		
-		
+		// TODO Auto-generated method stub	
+	}
+	
+	@Autowired
+	public void AuthenticationManager(AuthenticationManagerBuilder builder , UserRepository userRep) {
+		builder.userDetailsService(new UserDetailsService() {
+			@Override
+			public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		})
 	}
 
 }
