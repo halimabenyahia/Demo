@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 
 
 
@@ -27,7 +28,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
 		   .withClient("ClientId")
-		   .authorizedGrantTypes("client-credentials","password")
+		   .authorizedGrantTypes("client-credentials","password","REFRESH_TOKEN", "IMPLICIT")
 		   .authorities("ROLE_CLIENT","ROLE_TRUSTED_CLIENT")
 		   .scopes("read", "write")
 		   .resourceIds("oauth2-resouce")
@@ -39,7 +40,13 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 		endpoints
+		.tokenStore(tokenStore())
         .authenticationManager(authenticationManager);
+	}
+
+	private TokenStore tokenStore() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

@@ -49,7 +49,10 @@ public class VehiculeRestService {
 	
 	}
 	
-	
+	@RequestMapping(value="/vehiculebydepense",method=RequestMethod.GET)
+	public Vehicule getbydepense() {
+		return vehiculeRep.findByDepense();
+	}
 
 	
 //	@RequestMapping(value="/halima",method=RequestMethod.GET)

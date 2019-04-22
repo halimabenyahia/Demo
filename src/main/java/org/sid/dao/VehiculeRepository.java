@@ -6,7 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface VehiculeRepository extends JpaRepository<Vehicule, Integer> {
 	
-	
+    @Query("from Vehicule v where v.depense_v = 1")
+    public Vehicule findByDepense();
 	
 	
 	

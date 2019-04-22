@@ -8,17 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Depense {
 	
 	@Id @GeneratedValue
 	private int id_depense ;
+	@Temporal(TemporalType.DATE)
 	private Date date_depense ;
 	private Long montant_ht ;
 	private Long tva ;
 	private Long ttc ;
 	private Boolean mvt_caisse ;
+	@Temporal(TemporalType.DATE)
 	private Date date_caisse ;
 	private String reference_d ;
 	//private 
