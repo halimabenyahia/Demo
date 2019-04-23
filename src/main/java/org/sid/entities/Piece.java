@@ -12,6 +12,7 @@ public class Piece {
 	
 	@Id@GeneratedValue
 	private int id_piece ;
+	private String reference_piece ;
 	private String des_piece ;
 	private Long tva_p ;
 	private Long prix_achat ;
@@ -36,6 +37,14 @@ public class Piece {
 
 	public void setId_piece(int id_piece) {
 		this.id_piece = id_piece;
+	}
+
+	public String getReference_piece() {
+		return reference_piece;
+	}
+
+	public void setReference_piece(String reference_piece) {
+		this.reference_piece = reference_piece;
 	}
 
 	public String getDes_piece() {
@@ -102,10 +111,11 @@ public class Piece {
 		this.sortie_stock = sortie_stock;
 	}
 
-	public Piece(int id_piece, String des_piece, Long tva_p, Long prix_achat, Long qte_p, Long remise_p,
-			TypePiece type_piece_p, EntreeStock entre_stock, SortieStock sortie_stock) {
+	public Piece(int id_piece, String reference_piece, String des_piece, Long tva_p, Long prix_achat, Long qte_p,
+			Long remise_p, TypePiece type_piece_p, EntreeStock entre_stock, SortieStock sortie_stock) {
 		super();
 		this.id_piece = id_piece;
+		this.reference_piece = reference_piece;
 		this.des_piece = des_piece;
 		this.tva_p = tva_p;
 		this.prix_achat = prix_achat;
@@ -113,13 +123,15 @@ public class Piece {
 		this.remise_p = remise_p;
 		this.type_piece_p = type_piece_p;
 		this.entre_stock = entre_stock;
-     	this.sortie_stock = sortie_stock;
+		this.sortie_stock = sortie_stock;
 	}
 
 	public Piece() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	
 	
 	
 

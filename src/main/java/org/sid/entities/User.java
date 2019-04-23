@@ -33,14 +33,14 @@ public class User {
 	public Boolean getEtat_admin() {
 		return etat_admin;
 	}
-	public void setEtat_admin(Boolean etat_admin) {
+	public void setEtat_admin(boolean etat_admin) {
 		this.etat_admin = etat_admin;
 	}
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(int id_user, String login, String mdp, Boolean etat_admin) {
+	public User(int id_user, String login, String mdp, boolean etat_admin) {
 		super();
 		this.id_user = id_user;
 		this.login = login;

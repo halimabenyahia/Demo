@@ -28,7 +28,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
 		   .withClient("ClientId")
-		   .authorizedGrantTypes("client-credentials","password","REFRESH_TOKEN", "IMPLICIT")
+		   .authorizedGrantTypes("client-credentials","password")
 		   .authorities("ROLE_CLIENT","ROLE_TRUSTED_CLIENT")
 		   .scopes("read", "write")
 		   .resourceIds("oauth2-resouce")

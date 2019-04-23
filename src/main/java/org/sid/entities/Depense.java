@@ -21,14 +21,13 @@ public class Depense {
 	private Long montant_ht ;
 	private Long tva ;
 	private Long ttc ;
-	private Boolean mvt_caisse ;
+	private boolean mvt_caisse ;
 	@Temporal(TemporalType.DATE)
 	private Date date_caisse ;
 	private String reference_d ;
 	//private 
 	
 
-	
 	@ManyToOne
 	@JoinColumn(name="id_fournisseur")
 	private Fournisseur fournisseur_d ;
@@ -85,7 +84,7 @@ public class Depense {
 		return mvt_caisse;
 	}
 
-	public void setMvt_caisse(Boolean mvt_caisse) {
+	public void setMvt_caisse(boolean mvt_caisse) {
 		this.mvt_caisse = mvt_caisse;
 	}
 
@@ -135,7 +134,7 @@ public class Depense {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Depense(int id_depense, Date date_depense, Long montant_ht, Long tva, Long ttc, Boolean mvt_caisse,
+	public Depense(int id_depense, Date date_depense, Long montant_ht, Long tva, Long ttc, boolean mvt_caisse,
 			Date date_caisse, String reference_d, Fournisseur fournisseur_d, Piece piece_d,
 			DepenseCarburant depense_carburant) {
 		super();
