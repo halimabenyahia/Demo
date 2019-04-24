@@ -6,6 +6,8 @@ import java.util.List;
 import org.sid.dao.UserRepository;
 import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins="*")
+@Service(value="userService")
 public class UserRestService {
 	
 	@Autowired

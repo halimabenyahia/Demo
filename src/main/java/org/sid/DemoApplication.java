@@ -17,22 +17,12 @@ public class DemoApplication implements CommandLineRunner{
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-	
 
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub	
 	}
 	
-//	@Autowired
-//	public void AuthenticationManager(AuthenticationManagerBuilder builder , UserRepository userRep) {
-//		builder.userDetailsService(new UserDetailsService() {
-//			@Override
-//			public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
-//		})
-//	}
+
 
 }
