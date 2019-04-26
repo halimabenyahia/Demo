@@ -28,38 +28,38 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class DemoApplicationTests {
 
-	@InjectMocks
-	private VehiculeRestService vehiculeService;
-
-	@Mock
-	private VehiculeRepository vehiculeRep;
-
-	@Test
-	public void testGetAllVehicule() {
-		Collection<Vehicule> list = vehiculeService.getAllVehicule();
-		Assert.assertNotNull("error!", list); // vérifie si l'objet n'est pas null
-		return;
-	}
-
-	@Before
-	public void init() {
-		MockitoAnnotations.initMocks(this);
-	}
-	
-	
-	public Vehicule testVehiculeById() {
-		Vehicule v=new Vehicule();
-		v.setId_vehicule(1);
-		when(vehiculeRep.findOne(1)).thenReturn(v);
-		Vehicule ve=vehiculeService.getByIdVehicule(1);
-		verify(vehiculeRep).findOne(1);
-		assertEquals(1,ve.getId_vehicule());
-		return null;
-	}
-	
-	@Test
-	  public void test6() {
-	      System.out.println("Running TestClass3#test6()");
-	  }
+//	@InjectMocks
+//	private VehiculeRestService vehiculeService;
+//
+//	@Mock
+//	private VehiculeRepository vehiculeRep;
+//
+//	@Test
+//	public void testGetAllVehicule() {
+//		Collection<Vehicule> list = vehiculeService.getAllVehicule();
+//		Assert.assertNotNull("error!", list); // vérifie si l'objet n'est pas null
+//		return;
+//	}
+//
+//	@Before
+//	public void init() {
+//		MockitoAnnotations.initMocks(this);
+//	}
+//	
+//	
+//	public Vehicule testVehiculeById() {
+//		Vehicule v=new Vehicule();
+//		v.setId_vehicule(1);
+//		when(vehiculeRep.findOne(1)).thenReturn(v);
+//		Vehicule ve=vehiculeService.getByIdVehicule(1);
+//		verify(vehiculeRep).findOne(1);
+//		assertEquals(1,ve.getId_vehicule());
+//		return null;
+//	}
+//	
+//	@Test
+//	  public void test6() {
+//	      System.out.println("Running TestClass3#test6()");
+//	  }
 
 }

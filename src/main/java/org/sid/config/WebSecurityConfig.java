@@ -1,5 +1,7 @@
 package org.sid.config;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,11 +23,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	  public CorsConfigurationSource corsConfigurationSource() {
 	      final CorsConfiguration configuration = new CorsConfiguration();
-	      configuration.setAllowedOrigins(ImmutableList.of("*"));
-	      configuration.setAllowedMethods(ImmutableList.of("HEAD",
+	      configuration.setAllowedOrigins(Arrays.asList("*"));
+	      configuration.setAllowedMethods(Arrays.asList("HEAD",
 	              "GET", "POST", "PUT", "DELETE", "PATCH"));
 	      configuration.setAllowCredentials(true);
-	      configuration.setAllowedHeaders(ImmutableList.of("Authorization", "Cache-Control", "Content-Type"));
+	      configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
 	      final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 	      source.registerCorsConfiguration("/**", configuration);
 	      return source;
@@ -43,7 +45,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .antMatchers("/utilisateurs/signup").permitAll()
 	        .antMatchers("/utilisateurs/checkMail").permitAll()//
 	        .antMatchers("/utilisateurs/create").permitAll()//
-	        //.antMatchers("/livres").permitAll()//
 
 	       //  Disallow everything else..
 	        .anyRequest().authenticated();
