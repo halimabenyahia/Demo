@@ -26,11 +26,13 @@ public class JwtTokenFilter extends GenericFilterBean {
 			throws IOException, ServletException {
 		String token = jwtTokenProvider.resolveToken((HttpServletRequest) req);
 	    try {
+	    	//if jeton trouvé ds lentete deleguer l'auth a jwtTokenProvider
 	      if (token != null && jwtTokenProvider.validateToken(token)) {
 	        Authentication auth = token != null ? jwtTokenProvider.getAuthentication(token) : null;
 	        SecurityContextHolder.getContext().setAuthentication(auth);
 	      }
 	    }
+	    //exception
 	    catch (Exception ex) {
 	      HttpServletResponse response = (HttpServletResponse) res;
 	      System.out.println("**************************** JWT Expiredd**************************");

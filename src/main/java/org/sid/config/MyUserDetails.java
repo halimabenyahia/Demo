@@ -13,13 +13,13 @@ public class MyUserDetails implements UserDetailsService {
 	private UserRepository userRep ;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		final User user = userRep.findByUsername(username).get(0);
+	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+		final User user = userRep.findByUsername(login).get(0);
 		if (user == null) {
-		      throw new UsernameNotFoundException("login '" + username + "' not found");
+		      throw new UsernameNotFoundException("login '" + login + "' not found");
 		    }
 		return org.springframework.security.core.userdetails.User//
-		        .withUsername(username)//
+		        .withUsername(login)//
 		        .password(user.getMdp())//
 		        .authorities(user.getRoles())//
 		        .accountExpired(false)//

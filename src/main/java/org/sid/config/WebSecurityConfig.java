@@ -41,10 +41,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    // No session will be created or used by spring security
 	    http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	    http.authorizeRequests()//
-	        .antMatchers("/utilisateurs/signin").permitAll()//
-	        .antMatchers("/utilisateurs/signup").permitAll()
-	        .antMatchers("/utilisateurs/checkMail").permitAll()//
-	        .antMatchers("/utilisateurs/create").permitAll()//
+	        .antMatchers("/users/signin").permitAll()//
+	        .antMatchers("/users/signup").permitAll()
+	    //    .antMatchers("/utilisateurs/checkMail").permitAll()//
+	        .antMatchers("/users/create").permitAll()//
 
 	       //  Disallow everything else..
 	        .anyRequest().authenticated();
