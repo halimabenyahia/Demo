@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.sid.dao.ChauffeursRepository;
 import org.sid.entities.Chauffeurs;
+import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,5 +50,10 @@ public class ChauffeursRestService {
 	public List<Chauffeurs> getChauffeurParam(@PathVariable String parametre){
 		return chauffRep.findByParametreChauffeur("%"+parametre+"%");
 	}
+	
+//	@RequestMapping(value="/findbymatricule/{parametre}" , method=RequestMethod.GET)
+//	public List<Chauffeurs> getUserbyMatricule (@PathVariable String parametre){
+//		return chauffRep.findByMatricule(parametre);
+//	}
 
 }

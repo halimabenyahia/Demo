@@ -1,18 +1,22 @@
 
 package org.sid.web;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import org.sid.dao.UserRepository;
 import org.sid.entities.User;
+import org.sid.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,6 +26,9 @@ public class UserRestService {
 	
 	@Autowired
 	private UserRepository userRep ;
+	
+	@Autowired
+	private UserServiceImpl userService ;
 	
 	@RequestMapping(value="/users",method=RequestMethod.GET)
 	public List<User> getAllUser(){
@@ -61,5 +68,15 @@ public class UserRestService {
 	public List<User> getUserbyName (@PathVariable String parametre){
 		return userRep.findByUsername(parametre);
 	}
+	
+	@RequestMapping(value="/signin" , method=RequestMethod.POST)
+	public Map<String,String> login( @RequestParam String login, @RequestParam String mdp) {
+		    return Collections.singletonMap("token", userService.signin(login, mdp));
+		  }
+	
+	@RequestMapping(value="/signup" , method=RequestMethod.POST)
+	public ResponseEntity<Map<String, String>> signup( @RequestBody User user) {
+		return new ResponseEntity<Map<String,String>>(Collections.singletonMap("token", userService.signup(user)),HttpStatus.OK);
+		  }
 
 }
