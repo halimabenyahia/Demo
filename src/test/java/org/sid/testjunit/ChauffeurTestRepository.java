@@ -29,10 +29,10 @@ public class ChauffeurTestRepository extends TestParcRepository {
 		savedchauffeur.setNom_ch("ben romdhane");
 		savedchauffeur=chauffeurRep.save(savedchauffeur);
 		System.out.println("--------------- chauffeur saved ---------------");
-		List<Chauffeurs> foundChauffeur = chauffeurRep.findByParametreChauffeur(savedchauffeur.getNom_ch());
+		Chauffeurs foundChauffeur = chauffeurRep.findByParametreChauffeur(savedchauffeur.getNom_ch());
 		assertNotNull(foundChauffeur);
 		System.out.println("--------------- chauffeur trouvé ---------------");
-		assertEquals(( ((Chauffeurs) foundChauffeur).getId_chauffeur()), savedchauffeur.getId_chauffeur());
+		assertEquals( foundChauffeur.getId_chauffeur(), savedchauffeur.getId_chauffeur());
 		System.out.println("--------------- chauffeur vérifié ---------------");		
 
 	}

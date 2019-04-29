@@ -30,7 +30,6 @@ public class UserServiceImpl implements IUserService {
 	@Bean
 	public JwtTokenProvider jwtTokenProvider() {
 		return jwtTokenProvider;
-		
 	}
 	
 	@Autowired
@@ -49,9 +48,9 @@ public class UserServiceImpl implements IUserService {
 	public String signin(String login, String mdp) {
 		try {
 		      authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(login, mdp));
-		      return jwtTokenProvider.createToken(login, userRep.findByUsername(login).get(0).getRoles());
+		      return jwtTokenProvider.createToken(login, userRep.findByUsername(login).getRoles());
 		    } catch (AuthenticationException e) {
-		      throw new CustomException("Invalid username/password supplied",HttpStatus.UNPROCESSABLE_ENTITY);
+		      throw new CustomException("Invalid username/password supplied **",HttpStatus.UNPROCESSABLE_ENTITY);
 		    }
 	}
 
@@ -59,7 +58,7 @@ public class UserServiceImpl implements IUserService {
 	public String signup(User user) {
 		if (!userRep.existsByLogin(user.getLogin())) {
 		      user.setMdp(passwordEncoder.encode(user.getMdp()));
-		      user.setRoles(new ArrayList<Role>(Arrays.asList(Role.ROLE_CLIENT)));
+		      user.setRoles(new ArrayList<Role>(Arrays.asList(Role.ROLE_AGENT)));
 		      userRep.save(user);
 		      return jwtTokenProvider.createToken(user.getLogin(), user.getRoles());
 		    } else {

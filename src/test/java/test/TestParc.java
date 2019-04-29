@@ -21,14 +21,14 @@ public abstract class TestParc {
 	
 	
 	// convertir donnée en json(string)
-	protected final String mapToJson(Object obj) throws JsonProcessingException {
+	public final String mapToJson(Object obj) throws JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.writeValueAsString(obj);
 
 	}
 	
 	// json(string) => object
-	protected final <T> T mapFromJson(String json, Class<T> clazz)
+	public final <T> T mapFromJson(String json, Class<T> clazz)
 			throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.readValue(json, clazz);

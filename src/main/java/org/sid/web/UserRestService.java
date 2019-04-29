@@ -65,7 +65,7 @@ public class UserRestService {
 	}
 	
 	@RequestMapping(value="/findbyname/{parametre}" , method=RequestMethod.GET)
-	public List<User> getUserbyName (@PathVariable String parametre){
+	public User getUserbyName (@PathVariable String parametre){
 		return userRep.findByUsername(parametre);
 	}
 	

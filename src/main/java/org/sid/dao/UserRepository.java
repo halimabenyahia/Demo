@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 	
 	@Query("select u from User u where u.login like :parametre")
-	public List<User> findByUsername(@Param("parametre") String parametre) ;
+	public User findByUsername(@Param("parametre") String parametre) ;
 	
 	
 	boolean existsByLogin(String login);
