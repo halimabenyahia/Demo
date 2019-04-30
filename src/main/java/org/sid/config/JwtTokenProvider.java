@@ -38,9 +38,9 @@ public class JwtTokenProvider {
 		secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
 	}
 
-	public String createToken(String email, List<Role> roles) {
+	public String createToken(String login, List<Role> roles) {
 
-		Claims claims = Jwts.claims().setSubject(email);
+		Claims claims = Jwts.claims().setSubject(login);
 		claims.put("auth", roles.stream().map(s -> new SimpleGrantedAuthority(s.getAuthority()))
 				.filter(Objects::nonNull).collect(Collectors.toList()));
 

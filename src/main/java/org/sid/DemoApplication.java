@@ -1,14 +1,10 @@
 package org.sid;
 
-import org.sid.dao.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
+
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{

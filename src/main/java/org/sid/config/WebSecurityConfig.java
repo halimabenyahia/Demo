@@ -36,7 +36,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	  protected void configure(HttpSecurity http) throws Exception {
-	      http.csrf().disable();
+	    //don't create session  
+		http.csrf().disable();
 		  http.cors();
 	    // No session will be created or used by spring security
 	    http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -45,7 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .antMatchers("/signup").permitAll()
 	    //    .antMatchers("/utilisateurs/checkMail").permitAll()//
 	        .antMatchers("/users/create").permitAll()//
-
 	       //  Disallow everything else..
 	        .anyRequest().authenticated();
 
