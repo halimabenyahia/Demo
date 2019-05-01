@@ -18,13 +18,13 @@ import test.TestParcRestController;
 
 public class ChauffeurTestRestController extends TestParcRestController {
 	
-	@Autowired
+	
 	ChauffeursRestService chauffeurService ;
 	
 	//Donne accès au résultat d'une requête exécutée.
 	private MvcResult mvcResult;
 	
-	@Autowired
+	
 	TestParc testParc ;
 	
 //	public public ChauffeurTestRestController() {
@@ -53,45 +53,71 @@ public class ChauffeurTestRestController extends TestParcRestController {
 		
 	}
 
-//	@Test
-//	@Override
-//	public void createEntity() {
-//		try {
-//			Chauffeurs chauffeur = new Chauffeurs();
-//			chauffeur.setNom_ch("yahia");
-//			chauffeurService.addChauffeur(chauffeur);
-//			String inputJson = testParc.mapToJson(chauffeur);
-//			mvcResult = mvc.perform(MockMvcRequestBuilders.post("/addChauffeur").contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
-//			int status = mvcResult.getResponse().getStatus();
-//			assertEquals(200, status);
-//			Chauffeurs foundChauffeurs = chauffeurService.getChauffeurParam(chauffeur.getNom_ch());
-//			assertNotNull(foundChauffeurs);
-//			assertEquals(foundChauffeurs.getNom_ch(), chauffeur.getNom_ch());
-//
-//		}
-//		catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-//	}
+	@Test
+	@Override
+	public void createEntity() {
+		try {
+			Chauffeurs chauffeur = new Chauffeurs();
+			chauffeur.setNom_ch("yahia");
+			chauffeurService.addChauffeur(chauffeur);
+			String inputJson = testParc.mapToJson(chauffeur);
+			mvcResult = mvc.perform(MockMvcRequestBuilders.post("/addChauffeur").contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
+			int status = mvcResult.getResponse().getStatus();
+			assertEquals(200, status);
+			Chauffeurs foundChauffeurs = chauffeurService.getChauffeurParam(chauffeur.getNom_ch());
+			assertNotNull(foundChauffeurs);
+			assertEquals(foundChauffeurs.getNom_ch(), chauffeur.getNom_ch());
+
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	@Test
 	@Override
 	public void updateEntity() {
-		// TODO Auto-generated method stub
+		try {
+		Chauffeurs chauffeur = new Chauffeurs() ;
+		chauffeur.setNom_ch("yahia");
+		chauffeur = chauffeurService.addChauffeur(chauffeur);
+		chauffeur.setNom_ch("yahya");
+		String inputJson = testParc.mapToJson(chauffeur);
+		MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.put( "/editChauffeur")
+				.contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
+		int status = mvcResult.getResponse().getStatus();
+		assertEquals(200, status);
+		Chauffeurs chauffeurFound = chauffeurService.getChauffeurParam(chauffeur.getNom_ch());
+		assertNotNull(chauffeurFound);
+		assertEquals(chauffeurFound.getNom_ch(), chauffeur.getNom_ch());
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 
+	@Test
 	@Override
 	public void deleteEntity() {
-		// TODO Auto-generated method stub
+		try {
+			Chauffeurs chauffeur = new Chauffeurs();
+			chauffeur.setNom_ch("yahia");
+			chauffeur = chauffeurService.addChauffeur(chauffeur);
+			String inputJson = testParc.mapToJson(chauffeur);
+			MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.delete("/deleteChauffeur").contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)).andReturn();
+			int status = mvcResult.getResponse().getStatus();
+			assertEquals(200, status);
+			Chauffeurs chauffeurFound = chauffeurService.getChauffeurParam(chauffeur.getNom_ch());
+			assertEquals(null, chauffeurFound);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
-	@Override
-	public void createEntity() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 }

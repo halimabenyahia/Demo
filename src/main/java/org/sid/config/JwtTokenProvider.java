@@ -10,6 +10,8 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.sid.entities.Role;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,8 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 public class JwtTokenProvider {
+	
+//	private static final Logger logger = LoggerFactory.getLogger(JwtTokenProvider.class);
 
 	@Value("${security.jwt.token.secret-key:secret-key}")
 	private String secretKey;
@@ -38,8 +42,8 @@ public class JwtTokenProvider {
 		secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
 	}
 
+	
 	public String createToken(String login, List<Role> roles) {
-
 		Claims claims = Jwts.claims().setSubject(login);
 		claims.put("auth", roles.stream().map(s -> new SimpleGrantedAuthority(s.getAuthority()))
 				.filter(Objects::nonNull).collect(Collectors.toList()));
@@ -54,24 +58,7 @@ public class JwtTokenProvider {
 				.signWith(SignatureAlgorithm.HS256, secretKey)//
 				.compact();
 	}
-
-	public Authentication getAuthentication(String token) {
-		UserDetails userDetails = myUserDetails.loadUserByUsername(getUsername(token));
-		return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
-	}
-
-	public String getUsername(String token) {
-		return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
-	}
-
-	public String resolveToken(HttpServletRequest req) {
-		String bearerToken = req.getHeader("Authorization");
-		if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-			return bearerToken.substring(7, bearerToken.length());
-		}
-		return null;
-	}
-
+	
 	public boolean validateToken(String token) {
 		try {
 			Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
@@ -80,5 +67,30 @@ public class JwtTokenProvider {
 			throw new CustomException("Expired or invalid JWT token", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
+	
+	public Authentication getAuthentication(String token) {
+		UserDetails userDetails = myUserDetails.loadUserByUsername(getUsername(token));
+		return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+	}
+
+	
+	public String getUsername(String token) {
+		return Jwts.parser()
+				.setSigningKey(secretKey)
+				.parseClaimsJws(token)
+				.getBody().getSubject();
+	}
+
+	
+	public String resolveToken(HttpServletRequest req) {
+		String bearerToken = req.getHeader("Authorization");
+		if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+			return bearerToken.substring(7, bearerToken.length());
+		}
+		return null;
+	}
+
+	
 
 }

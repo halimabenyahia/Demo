@@ -35,10 +35,10 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	
-//	@Bean
-//	public AuthenticationManager authenticationManager() {
-//		return authenticationManager;
-//	}
+	@Bean
+	public AuthenticationManager authenticationManager() {
+		return authenticationManager;
+	}
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;

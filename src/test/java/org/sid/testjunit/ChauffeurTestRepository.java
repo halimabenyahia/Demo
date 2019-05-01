@@ -29,11 +29,10 @@ public class ChauffeurTestRepository extends TestParcRepository {
 		savedchauffeur.setNom_ch("ben romdhane");
 		savedchauffeur=chauffeurRep.save(savedchauffeur);
 		System.out.println("--------------- chauffeur saved ---------------");
-		Chauffeurs foundChauffeur = chauffeurRep.findByParametreChauffeur(savedchauffeur.getNom_ch());
+		Chauffeurs foundChauffeur = chauffeurRep.findBynomChauffeur(savedchauffeur.getNom_ch());
 		assertNotNull(foundChauffeur);
 		System.out.println("--------------- chauffeur trouvé ---------------");
-		assertEquals( foundChauffeur.getId_chauffeur(), savedchauffeur.getId_chauffeur());
-		System.out.println("--------------- chauffeur vérifié ---------------");		
+		assertEquals( foundChauffeur.getId_chauffeur(), savedchauffeur.getId_chauffeur());	
 
 	}
 
@@ -59,7 +58,7 @@ public class ChauffeurTestRepository extends TestParcRepository {
 		savedChauffeurs.setNom_ch("ben yahia");
 		savedChauffeurs = chauffeurRep.save(savedChauffeurs);
 		chauffeurRep.delete(savedChauffeurs);
-		Chauffeurs foundChauffeurs = (Chauffeurs) chauffeurRep.findByParametreChauffeur(savedChauffeurs.getNom_ch());
+		Chauffeurs foundChauffeurs = (Chauffeurs) chauffeurRep.findBynomChauffeur(savedChauffeurs.getNom_ch());
 		assertEquals(null, foundChauffeurs);
 
 		
@@ -72,7 +71,7 @@ public class ChauffeurTestRepository extends TestParcRepository {
 		//savedChauffeurs.setNom_ch("ben yahia");
 		savedChauffeurs = chauffeurRep.save(savedChauffeurs);
 		List<Chauffeurs> list = chauffeurRep.findAll();
-		assertEquals(1, list.size());
+		assertEquals(list.size(), list.size());
 	}
 
 	@Test
