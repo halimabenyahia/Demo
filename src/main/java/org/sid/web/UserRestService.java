@@ -74,6 +74,7 @@ public class UserRestService {
 		    return Collections.singletonMap("token", userService.signin(login, mdp));
 		  }
 	
+	
 	@RequestMapping(value="/signup" , method=RequestMethod.POST)
 	public ResponseEntity<Map<String, String>> signup( @RequestBody User user) {
 		return new ResponseEntity<Map<String,String>>(Collections.singletonMap("token", userService.signup(user)),HttpStatus.OK);
