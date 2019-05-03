@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
 @Entity
 public class User {
 	
@@ -52,22 +53,23 @@ public class User {
 		this.etat_admin = etat_admin;
 	}
 
-	public List<Role> getRoles() {
-		return roles;
-	}
+	 public List<Role> getRoles() {
+		    return roles;
+		  }
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
+		  public void setRoles(List<Role> roles) {
+		    this.roles = roles;
+		  }
 
+	
 	public User(int id_user, String login, String mdp, boolean etat_admin, List<Role> roles) {
-		super();
-		this.id_user = id_user;
-		this.login = login;
-		this.mdp = mdp;
-		this.etat_admin = etat_admin;
-		this.roles = roles;
-	}
+			super();
+			this.id_user = id_user;
+			this.login = login;
+			this.mdp = mdp;
+			this.etat_admin = etat_admin;
+			this.roles = roles;
+		}
 
 	public User() {
 		super();

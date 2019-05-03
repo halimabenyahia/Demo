@@ -2,6 +2,8 @@ package org.sid.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.sid.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,6 +21,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	
 	boolean existsByLogin(String login);
+	
+//	User findByUserlogin(String login);
+	
+	 @Transactional
+	  void deleteByLogin(String login);
+
 		
 
 }

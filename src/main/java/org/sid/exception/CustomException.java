@@ -1,4 +1,4 @@
-package org.sid.config;
+package org.sid.exception;
 
 import org.springframework.http.HttpStatus;
 
@@ -22,5 +22,6 @@ public class CustomException extends RuntimeException {
 	  public HttpStatus getHttpStatus() {
 	    return httpStatus;
 	  }
+
 
 }
